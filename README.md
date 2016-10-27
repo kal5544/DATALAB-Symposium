@@ -25,5 +25,3 @@ Steps for running or the Logger
 6. Hit Stop recording
 
 This leaves a file with the name with the date `2016-10-07_something.klg`
-
-
