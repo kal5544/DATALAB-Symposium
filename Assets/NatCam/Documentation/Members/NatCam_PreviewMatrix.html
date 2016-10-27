@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html lang='en-US'>
+    <head>
+        <!--Document title is project name-->
+        <title>NatCam Scripting Reference on Calligraphy</title>
+        <!--Extra information-->
+        <meta name='description' content='NatCam API documentation on Calligraphy'> <!--Populate from Calligraphy-->
+        <meta name='keywords' content='NatCam, Unitygram, WebCamTexture, WebCam, Minigram, Calligraphy, Unity'> <!--Populate from Calligraphy-->
+        <meta name='author' content='Calligraphy by Yusuf Olokoba'>
+        <meta charset='UTF-8'>
+        <!--Style sheet-->
+        <link rel='stylesheet' href='../Styles/memberstyles.css'>
+    </head>
+	
+	<body>
+        <h1 class='blockname'><a href='../Groups/NatCam.html'>NatCam</a>.PreviewMatrix</h1>
+        <p1 class='faintname'>public static Mat<b> PreviewMatrix;</b></p1>
+        <br>
+        <br>
+        <h2>Description</h2>
+        <p1>The camera preview as an OpenCV Matrix. To access this 
+    property, uncomment '#define OPENCV_DEVELOPER_MODE' at the top of NatCam.cs, NatCamNativeInterface.cs, and 
+    NatCamFallbackInterface.cs.<br><br>Note that this requires the <a target='_blank' href='https://www.assetstore.unity3d.com/en/#!/content/21088'>OpenCVForUnity</a> 
+    package. Also note that this requires a <a href='PreviewType_Readable.html'>Readable</a> preview.</p1>
+        <br>
+        <br>
+        
+        <!--Code example-->
+        <!--Must not be indented-->
+        <!--There must be no space between the text and the pre tags-->
+
+<code>
+<pre>
+<font color='green'>//Remember to uncomment '#define OPENCV_DEVELOPER_MODE' in NatCam.cs, NatCamNativeInterface.cs, and NatCamFallbackInterface.cs</font>
+
+using UnityEngine;
+using NatCamU;
+
+public class NatCamCV : UnitygramBase {
+
+    Texture2D texture;
+    Color32[] colors;
+
+    public override void OnPreviewStart () {
+        <font color='green'>//Initialize our color buffer</font>
+        colors = new Color32[NatCam.PreviewMatrix.cols () * NatCam.PreviewMatrix.rows ()];
+        <font color='green'>//Initialize our destination texture</font>
+        texture = new Texture2D (NatCam.PreviewMatrix.cols (), NatCam.PreviewMatrix.rows (), TextureFormat.RGBA32, false);
+        <font color='green'>//Set our UI Panel's RawImage texture to our destination texture</font>
+        RawImage.texture = texture;
+    }
+
+    public override void OnPreviewUpdate () {
+        <font color='green'>//Draw a line on our image</font>
+        Imgproc.line (NatCam.PreviewMatrix, new Point (0, 0), new Point (NatCam.PreviewMatrix.cols (), NatCam.PreviewMatrix.rows ()), new Scalar (255, 0, 0, 255), 4);
+        <font color='green'>//Update our destination texture with the line drawn above</font>
+        Utils.matToTexture2D (NatCam.PreviewMatrix, texture, colors);
+    }
+}
+    </pre>
+</code>
+<br>
+        
+        
+        <!--See Also-->
+        
+        
+        <!--Copyright tag-->
+        <br>
+        <hr>
+        <p1 class='copyright'><small>Copyright (c) Yusuf Olokoba 2016</small></p1>
+        
+	</body>
+</html>        
+        

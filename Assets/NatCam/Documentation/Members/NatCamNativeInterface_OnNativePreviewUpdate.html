@@ -1,0 +1,109 @@
+
+<!DOCTYPE html>
+<html lang='en-US'>
+    <head>
+        <!--Document title is project name-->
+        <title>NatCam Scripting Reference on Calligraphy</title>
+        <!--Extra information-->
+        <meta name='description' content='NatCam API documentation on Calligraphy'> <!--Populate from Calligraphy-->
+        <meta name='keywords' content='NatCam, Unitygram, WebCamTexture, WebCam, Minigram, Calligraphy, Unity'> <!--Populate from Calligraphy-->
+        <meta name='author' content='Calligraphy by Yusuf Olokoba'>
+        <meta charset='UTF-8'>
+        <!--Style sheet-->
+        <link rel='stylesheet' href='../Styles/memberstyles.css'>
+    </head>
+	
+	<body>
+        <h1 class='blockname'><a href='../Groups/NatCamNativeInterface.html'>NatCamNativeInterface</a>.OnNativePreviewUpdate</h1>
+        <p1 class='faintname'>public static event <a href='../Groups/NativePreviewCallback.html'>NativePreviewCallback</a><b> OnNativePreviewUpdate;</b></p1>
+        <br>
+        <br>
+        <h2>Description</h2>
+        <p1>An event fired when NatCam receives the native pixel buffer handle for 
+    the current camera preview frame. Use this to have access to the raw pixel data in your native plugins.<br><br>
+    When you send the pointer to your native C-based layer, make sure you perform a memcpy <b>before</b> performing any operations if you will be modifying the data 
+    in any way. Also make sure that you initialize NatCam with PreviewType.<a href='PreviewType_Readable.html'>Readable</a>.<br></p1>
+        <br>
+        <br>
+        
+        <!--Code example-->
+        <!--Must not be indented-->
+        <!--There must be no space between the text and the pre tags-->
+
+<code>
+<pre>
+<font color='green'>//--------------Unity Code----------------</font>
+
+using System;
+using NatCamU;
+using NatCamU.Internals; <font color='green'>//We need access to NatCamNativeInterface</font>
+
+public class NativeCamera : UnitygramBase {
+
+    <font color='green'>//Define the C++ method in a library, libNativeCodeExample.so</font>
+    [DllImport("NativeCodeExample")]
+    static extern void SwizzleToBGRA (IntPtr buffer, int width, int height, UIntPtr size); <font color='green'>//size_t in C++ to guarantee 32bits</font>
+        
+    void Awake () {
+        <font color='green'>//Register for the native buffer updates</font>
+        NatCamNativeInterface.OnNativePreviewUpdate += NativeSwizzle;
+    }
+
+    void NativeSwizzle (ComponentBuffer bufferType, UIntPtr buffer, int width, int height, int size) {
+        <font color='green'>//We only want the RGBA32 pixel data</font>
+        if (bufferType == ComponentBuffer.RGBA32) SwizzleToBGRA(buffer, width, height, (UIntPtr)(uint)size);
+    }
+}
+
+
+<font color='green'>//--------------C++ Code----------------</font>
+
+typedef unsigned char byte; <font color='green'>//To make life easier</font>
+
+static byte* input;
+
+extern "C" void SwizzleToBGRA (const void* buffer, const int width, const int height, const size_t size) {
+    <font color='green'>//Immediately copy out the data //Don't worry, this is pretty fast even on low end phones and high resolution previews</font>
+    input = input == NULL ? new byte[size] : input;
+    memcpy(input, buffer, size);
+    <font color='green'>//Create an output buffer</font>
+    byte* output = new byte[size];
+    <font color='green'>//Keep track of our offsets</font>
+    int offset = 0;
+    <font color='green'>//Iterate</font>
+    for (int x = 0; x < width; x++) {
+        for (int y = 0; y < height; y++) {
+            <font color='green'>//Swizzle</font>
+            output[offset] = input[offset + 2];     <font color='green'>//B</font>
+            output[offset + 1] = input[offset + 1]; <font color='green'>//G</font>
+            output[offset + 2] = input[offset];     <font color='green'>//R</font>
+            output[offset + 3] = input[offset + 3]; <font color='green'>//A</font>
+            <font color='green'>//Shift our offset</font>
+            offset += 4;
+        }
+    }
+}
+
+<font color='green'>//If you actually ever need to do this, consider using ARM Assembly, NEON, x86 SSE, or GPU-accelerated swizzling.</font>
+    </pre>
+</code>
+<br>
+        
+        
+        <!--See Also-->
+        
+        <p>See Also: 
+        <a href='../Groups/NativePreviewCallback.html'>NativePreviewCallback</a>
+        , 
+        <a href='../Groups/ComponentBuffer.html'>ComponentBuffer</a>
+        .</p>
+        
+        
+        <!--Copyright tag-->
+        <br>
+        <hr>
+        <p1 class='copyright'><small>Copyright (c) Yusuf Olokoba 2016</small></p1>
+        
+	</body>
+</html>        
+        

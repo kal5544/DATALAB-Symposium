@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html lang='en-US'>
+    <head>
+        <!--Document title is project name-->
+        <title>NatCam Scripting Reference on Calligraphy</title>
+        <!--Extra information-->
+        <meta name='description' content='NatCam API documentation on Calligraphy'> <!--Populate from Calligraphy-->
+        <meta name='keywords' content='NatCam, Unitygram, WebCamTexture, WebCam, Minigram, Calligraphy, Unity'> <!--Populate from Calligraphy-->
+        <meta name='author' content='Calligraphy by Yusuf Olokoba'>
+        <meta charset='UTF-8'>
+        <!--Style sheet-->
+        <link rel='stylesheet' href='../Styles/memberstyles.css'>
+    </head>
+	
+	<body>
+        <h1 class='blockname'><a href='../Groups/DeviceCamera.html'>DeviceCamera</a>.ZoomRatio</h1>
+        <p1 class='faintname'>public  float<b> ZoomRatio;</b></p1>
+        <br>
+        <br>
+        <h2>Description</h2>
+        <p1>Get or set the active camera's zoom ratio.<br><br>When setting this property, this will zoom the camera 
+    to a zoomRatio between no zoom and maximum zoom. Zoom ratio must be a value between [0,1]. NatCam will automatically clamp the value 
+    instead of throwing an ArgumentOutOfRangeException.<br><br>Keep in mind that this is a null op on device cameras that do not support 
+    optical zoom. For versatility in usage, you best use NatCamPreviewZoomer with ZoomMode.<a href='ZoomMode_DigitalZoomAsFallback.html'>DigitalZoomAsFallback</a>.
+    <br><br> Also note that this is a null op if you have an active NatCamPreviewZoomer with 
+    ZoomMode.<a href='ZoomMode_ForceDigitalZoomOnly.html'>ForceDigitalZoomOnly</a>.</p1>
+        <br>
+        <br>
+        
+        <!--Code example-->
+        <!--Must not be indented-->
+        <!--There must be no space between the text and the pre tags-->
+
+        
+        <!--See Also-->
+        
+        
+        <!--Copyright tag-->
+        <br>
+        <hr>
+        <p1 class='copyright'><small>Copyright (c) Yusuf Olokoba 2016</small></p1>
+        
+	</body>
+</html>        
+        

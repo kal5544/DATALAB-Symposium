@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<html lang='en-US'>
+    <head>
+        <!--Document title is project name-->
+        <title>NatCam Scripting Reference on Calligraphy</title>
+        <!--Extra information-->
+        <meta name='description' content='NatCam API documentation on Calligraphy'> <!--Populate from Calligraphy-->
+        <meta name='keywords' content='NatCam, Unitygram, WebCamTexture, WebCam, Minigram, Calligraphy, Unity'> <!--Populate from Calligraphy-->
+        <meta name='author' content='Calligraphy by Yusuf Olokoba'>
+        <meta charset='UTF-8'>
+        <!--Style sheet-->
+        <link rel='stylesheet' href='../Styles/memberstyles.css'>
+    </head>
+	
+	<body>
+        <h1 class='blockname'><a href='../Groups/NatCam.html'>NatCam</a>.Initialize</h1>
+        <p1 class='faintname'>public static void Initialize (<a href='../Groups/NatCamInterface.html'>NatCamInterface</a> NatCamInterface, <a href='../Groups/PreviewType.html'>PreviewType</a> PreviewType, <a href='../Groups/Switch.html'>Switch</a> MetadataDetection)<b>;</b></p1>
+        <br>
+        <br>
+        <h2>Description</h2>
+        <p1>Initialize NatCam. This method must be called before any other calls
+    to NatCam or DeviceCamera.<br><br>Interface defines what backing interface NatCam will be initialized with. The NativeInterface is default, but if the 
+    device does not support it, NatCam will fallback to the FallbackInterface which is a WebCamTexture wrapper. The FallbackInterface has very limited 
+    feature support.<br><br>PreviewType defines whether the preview is readable or not. Applications that require accessing the 
+    preview data for any CPU operations (like GetPixels, SetPixels, EncodeToJPG, and so on) will require PreviewType.Readable. Applications like OpenCV
+    will also require this. It is advised that if the preview will only be displayed and nothing else, leave it NonReadable. This is NonReadable by 
+    default.<br><br>If you wish to detect metadata (faces and barcodes), you must pass set MetadataDetection to On. 
+    This is false by default.<br></p1>
+        <br>
+        <br>
+        
+        <!--Code example-->
+        <!--Must not be indented-->
+        <!--There must be no space between the text and the pre tags-->
+
+<code>
+<pre>
+void Start () {
+    <font color='green'>//Initialize NatCam for barcode and face detection</font>
+    NatCam.Initialize(Interface:NatCamInterface.NativeInterface, MetadataDetection:Switch.On);
+    <font color='green'>//Play the rear camera</font>
+    NatCam.Play(DeviceCamera.RearCamera);
+    <font color='green'>//Set our preview UI Panel RawImage texture</font>
+    NatCam.ExecuteOnPreviewStart(() => rawImage.texture = NatCam.Preview);
+}
+    </pre>
+</code>
+<br>
+        
+<code>
+<pre>
+void Start () {
+    <font color='green'>//Initialize NatCam with default settings</font>
+    NatCam.Initialize();
+    <font color='green'>//Play the rear camera</font>
+    NatCam.Play(DeviceCamera.RearCamera);
+    <font color='green'>//Set our preview UI Panel RawImage texture</font>
+    NatCam.ExecuteOnPreviewStart(() => rawImage.texture = NatCam.Preview);
+}
+    </pre>
+</code>
+<br>
+        
+        
+        <!--See Also-->
+        
+        <p>See Also: 
+        <a href='../Groups/NatCamInterface.html'>NatCamInterface</a>
+        , 
+        <a href='../Groups/PreviewType.html'>PreviewType</a>
+        , 
+        <a href='../Groups/Switch.html'>Switch</a>
+        .</p>
+        
+        
+        <!--Copyright tag-->
+        <br>
+        <hr>
+        <p1 class='copyright'><small>Copyright (c) Yusuf Olokoba 2016</small></p1>
+        
+	</body>
+</html>        
+        

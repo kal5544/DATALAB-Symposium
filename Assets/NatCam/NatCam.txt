@@ -1,0 +1,75 @@
+NatCam 1.3f4
+
+FEATURES:
++ Added universal barcode detection support. Now, barcodes can be detected in the editor and all other platforms.
++ Added Exposure control with DeviceCamera.SetExposure(float), DeviceCamera.MinExposureBias and DeviceCamera.MaxExposureBias.
++ Added ExposureMode enum and DeviceCamera.ExposureMode.
++ Added Face detection with Face struct and NatCam.RequestFace().
++ Added DeviceCamera.SetPhotoResolution() + overloads.
++ Added DeviceCamera.ActivePhotoResolution.
++ Added a new, low-cost rendering pipeline on Android.
++ Removed rendering pipeline on iOS. This has increased performance especially for GPU-bound applications.
++ Reduced rendering pipeline memory usage on Android.
++ Removed NATCAM_DEVELOPER_MODE and component buffer access (Y and UV buffers) from rendering pipeline.
++ Fixed hanging and crashing on Samsung Galaxy S4, Nexus 1, and other Android devices with PowerVR SGX540 family GPU's.
++ Barcode detection now supports Unicode characters.
++ Made camera switching faster on Android.
++ Reimplemented NatCamPreviewScaler to be more stable.
++ Added NatCam.SaveToPhotos for saving Texture2D to the gallery or app album.
++ Added necessary checks and error logging for google_play_services when detecting barcodes and faces on Android.
++ Fixed bug on Android where camera must be manually focused before autofocus starts.
++ Fixed bug where NatCam becomes unresponsive when there is no camera in the scene.
++ Removed Verbose switch from NatCam.Initialize(), it is now a member variable (NatCam.Verbose = ...).
++ Deprecated BarcodeDetection switch in NatCam.Initialize() for MetadataDetection (which now includes faces).
++ Changed OnDetectedBarcode delegate template to take single barcode instead of list.
++ Fixed barcodes not being detected when the preview is resumed after calling Pause on Android.
++ Fixed FormatException when scanning some barcodes.
++ Fixed bug where NatCam.ExecuteOnPreviewStart invokes immediately after switching cameras.
++ Fixed bug where NatCam.PreviewMatrix is null when the OnPreviewStart event is broadcast.
++ Fixed bug where NatCamPreviewScaler will incorrectly stretch UI panel on iOS.
++ Renamed Unitygram example to Minigram.
+
+CHANGES FROM 1.3f2:
++ On Android, the native preview update and preview data dimensions now respects the orientation of the app.
++ On Android, NatCam.PreviewFrame is no more skewed depending on app orientation.
++ Added timeStamp integer field to Barcode and Face.
++ Added SaveMode enum.
++ Fixed preview incorrectly rotating when app is using fixed orientation on iOS.
++ Fixed null reference exception when NatCam.Release is called on the fallback interface.
++ Fixed faces not being detected properly by front camera on Android.
++ Fixed face positions not being in viewport coordinates on Android.
++ Fixed face positions being inverted on the Y axis
++ Fixed bug wehere photos would not be captured after Pause() was called.
++ Fixed bug on iOS where DeviceCamera.VerticalFOV returned horizontal FOV.
++ Fixed rare crash when calling NatCam.Release() on Android.
++ Fixed compiler errors in NatCamNativeInterface.UpdatePhoto().
++ Changed Android minimum SDK version to API level 15.
++ Deprecated PhotoSaveMode enum.
++ Exposed google-play-services.jar to prevent build errors on duplicate copies.
+
+CHANGES FROM 1.3f1:
++ Added ScaleMode.FillView so that NatCamPreviewScaler fills a RectTransform.
++ Fixed faces not being detected on Android.
++ Fixed rare crash immediately app is suspended on Android.
++ Fixed NatCamPreviewScaler scaling incorrectly on some devices.
++ Removed NatCamPreviewScaler.Apply + overloads. It now scales properly for any texture assigned to the graphic.
+
+KNOWN ISSUES:
+- Documentation has not been updated since 1.3f1.
+- SaveMode has not been completely implemented.
+
+QUICK TIPS:
+- Please peruse the included scripting reference under Editor>NatCam>Scripting Reference.
+- If you face build errors when building to Android because of duplicate google-play-services.jar files, delete the one with NatCam.
+- To use the OpenCV support wrapper, uncomment "#define OPENCV_DEVELOPER_MODE" in NatCam.cs, NatCamNativeInterface.cs, and NatCamFallbackInterface.cs. This will give you access to NatCam.PreviewMatrix.
+- To use the native preview update callbacks for your native code, check the documentation under NatCamNativeInterface>OnNativePreviewUpdate.
+- For a quick start, check out the example scene and the Readme.pdf. The scripting reference is also very rich in code examples.
+- To discuss or report an issue, visit Unity forums here: http://forum.unity3d.com/threads/natcam-device-camera-api.374690/
+- Check out more NatCam examples on Github here: https://github.com/maiisalihu?tab=repositories
+- Contact me at: olokobayusuf@gmail.com.
+- If you need the Android sources, email me. They are not included anymore because of the size.
+- On iOS, NatCam requires iOS 7 and up.
+- On Android, NatCam requires API Level 15 and up.
+
+
+Thank you very much!

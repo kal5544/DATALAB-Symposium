@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html lang='en-US'>
+    <head>
+        <!--Document title is project name-->
+        <title>NatCam Scripting Reference on Calligraphy</title>
+        <!--Extra information-->
+        <meta name='description' content='NatCam API documentation on Calligraphy'> <!--Populate from Calligraphy-->
+        <meta name='keywords' content='NatCam, Unitygram, WebCamTexture, WebCam, Minigram, Calligraphy, Unity'> <!--Populate from Calligraphy-->
+        <meta name='author' content='Calligraphy by Yusuf Olokoba'>
+        <meta charset='UTF-8'>
+        <!--Style sheet-->
+        <link rel='stylesheet' href='../Styles/memberstyles.css'>
+    </head>
+	
+	<body>
+        <h1 class='blockname'><a href='../Groups/NatCam.html'>NatCam</a>.ExecuteOnPreviewStart</h1>
+        <p1 class='faintname'>public static void ExecuteOnPreviewStart (PreviewCallback[] callbacks)<b>;</b></p1>
+        <br>
+        <br>
+        <h2>Description</h2>
+        <p1>Execute the PreviewCallbacks when the preview starts. This is usually used to set 
+    a graphic's texture to the NatCam Preview. This step is necessary because prior to the OnPreviewStart event firing, NatCam.Preview is null. This is 
+    also used when setting things like exposure mode, focus mode, and similar on the active camera. This will also invoke callbacks when the active camera is switched.
+    <br><br>This is equivalent to subscribing the supplied callbacks to the OnPreviewStart event. The difference is that the callbacks will automatically be unsubscribed 
+    once they have been invoked.<br></p1>
+        <br>
+        <br>
+        
+        <!--Code example-->
+        <!--Must not be indented-->
+        <!--There must be no space between the text and the pre tags-->
+
+<code>
+<pre>
+<font color='green'>//Set our preview UI Panel RawImage texture</font>
+NatCam.ExecuteOnPreviewStart(() => rawImage.texture = NatCam.Preview);
+    </pre>
+</code>
+<br>
+        
+        
+        <!--See Also-->
+        
+        <p>See Also: 
+        <a href='../Groups/PreviewCallback.html'>PreviewCallback</a>
+        .</p>
+        
+        
+        <!--Copyright tag-->
+        <br>
+        <hr>
+        <p1 class='copyright'><small>Copyright (c) Yusuf Olokoba 2016</small></p1>
+        
+	</body>
+</html>        
+        

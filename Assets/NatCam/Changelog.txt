@@ -1,0 +1,106 @@
+NatCam 1.3:
++ Added universal barcode detection support. Now, barcodes can be detected in the editor and all other platforms.
++ Added Exposure control with DeviceCamera.ExposureBias, DeviceCamera.MinExposureBias and DeviceCamera.MaxExposureBias.
++ Added ExposureMode enum and DeviceCamera.ExposureMode.
++ Added Face detection with Face struct and NatCam.RequestFace().
++ Added DeviceCamera.SetPhotoResolution() + overloads.
++ Added DeviceCamera.ActivePhotoResolution.
++ Added a new, low-cost rendering pipeline on Android.
++ Removed rendering pipeline on iOS. This has increased performance especially for GPU-bound applications.
++ Reduced rendering pipeline memory usage on Android.
++ Removed NATCAM_DEVELOPER_MODE and component buffer access (Y and UV buffers) from rendering pipeline.
++ Fixed hanging and crashing on Samsung Galaxy S4, Nexus 1, and other Android devices with PowerVR SGX540 family GPU's.
++ Barcode detection now supports Unicode characters.
++ Made camera switching faster on Android.
++ Reimplemented NatCamPreviewScaler to be more stable.
++ Added NatCam.SaveToPhotos for saving Texture2D to the gallery or app album.
++ Added necessary checks and error logging for google_play_services when detecting barcodes and faces on Android.
++ Fixed bug on Android where camera must be manually focused before autofocus starts.
++ Fixed bug where NatCam becomes unresponsive when there is no camera in the scene.
++ Removed Verbose switch from NatCam.Initialize(), it is now a member variable (NatCam.Verbose = ...).
++ Deprecated BarcodeDetection switch in NatCam.Initialize() for MetadataDetection (which now includes faces).
++ Changed OnDetectedBarcode delegate template to take single barcode instead of list.
++ Fixed barcodes not being detected when the preview is resumed after calling Pause on Android.
++ Fixed FormatException when scanning some barcodes.
++ Fixed bug where NatCam.ExecuteOnPreviewStart invokes immediately after switching cameras.
++ Fixed bug where NatCam.PreviewMatrix is null when the OnPreviewStart event is broadcast.
++ Fixed bug where NatCamPreviewScaler will incorrectly stretch UI panel on iOS.
++ Added NatCam.IsInitialized property.
++ Renamed Unitygram example to Minigram.
++ Everything below.
+
+NatCan 1.2:
++ Completely rebuilt API to have a more object-oriented programming pattern, and to be much cleaner.
++ Immediate native-to-managed callbacks, deprecated UnitySendMessage for MonoPInvokeCallback with function pointers.
++ Added NativePreviewCallback and NatCamNativeInterface.EnableComponentUpdate() to get access to the raw luma (Y) and chroma (UV) buffers from the camera.
++ Added the NatCam rendering pipeline to NatCam iOS.
++ Added NatCamNativeInterface.DisableRenderingPipeline() to disable NatCam's native rendering pipeline.
++ Added NatCamPreviewGestures component for easy detection of focusing and zooming gestures.
++ Added UnitygramBase component for quickly implementing NatCam.
++ Removed NatCam.AutoTapToFocus, NatCam.AutoPinchToZoom.
++ Camera preview is now accessible through NatCam.Preview and returns a Texture (not Texture2D).
++ Camera switching on iOS and Android is now stable and responsive.
++ Added SetFramerate() in the DeviceCamera class and FrameratePreset enum.
++ Added HorizontalFOV, VerticalFOV, IsTorchSupported, IsFlashSupported, and IsZoomSupported in the DeviceCamera class.
++ Added DeviceCamera.Cameras list of cameras on the device, not just DeviceCamera.Front/RearCamera.
++ Added ability to specify NatCam interface (native or fallback) and NatCamInterface enum.
++ Added verboseMode switch to NatCam.Initialize() for debugging.
++ Added NatCam.RequestBarcodeDetection(), BarcodeRequest struct.
++ Added ability to use bitwise operators to request multiple barcode formats when creating barcode detection requests.
++ Added NatCam.HasPermissions to check if the app has camera permissions.
++ Deprecated DeviceCamera.SupportedResolutions and Resolution struct. Use ResolutionPreset instead.
++ Deprecated CapturePhoto overloads for NatCam.CapturePhoto(params PhotoCaptureCallback[] callbacks).
++ Removed '#if CALLIGRAPHY_DOC_GEN_MODE' conditional directives making code much cleaner.
++ Fix camera preview lagging on iOS.
++ OpenCV PreviewMatrix now updates from the native pixel buffer. This gives some memory savings and performance increase.
++ Captured photo is now the highest resolution that the camera supports by default.
++ Captured photo is now RGBA32 format. This means you can use Get/SetPixels(s), EncodeToJPG/PNG, and Apply.
++ Preview is now RGBA32 format on both iOS and Android.
++ Fixed "Error Creating Optimization Context" when using Readable preview on Galaxy S6 and Galaxy Tab.
++ Fixed rare scan line jitter when NatCam corrects padding with Readable preview on some Android devices.
++ Added ALLOCATE_NEW_PHOTO_TEXTURES macro for optimizing memory usage.
++ Added ALLOCATE_NEW_FRAME_TEXTURES macro for optimizing memory usage.
++ Fixed Android crash on Stop().
++ Removed NatCam detectTouchesForFocus and detectPinchToZoom for NatCamPreviewGestures component.
++ Fixed error when LoadLevel is called--something along the lines of "SendMessage: NatCamHelper not found".
++ Added editor-serialized variables for Unitygram example. Now, you can set Unitygram's variables from the editor instead of code.
++ Unitygram example is now a camera app featuring photo capture with flash, switching cameras, and barcode detection.
++ Automatically link required frameworks on iOS.
++ Deprecated OPTIMIZATION_USE_NATIVE_BUFFER macro, and as a result, direct support for Unity 5.2 has been stopped.
++ NatCamPreviewUIPanelScaler and NatCamPreviewUIPanelZoomer have been renamed to NatCamPreviewScaler and NatCamPreviewZoomer respectively.
++ Deprecated NatCam.Stop() for NatCam.Release().
++ Fixed NatCam.Release() (formerly 'Stop') being ignored when NatCam.Pause() is called immediately before.
++ Fixed NatCamPreviewScaler not correctly scaling HD and FullHD preview on iOS.
++ Fixed rotation and skewing when using CapturedPhoto with OpenCV.
++ Fixed memory leak when calling Release() (formerly named 'Stop') and Initialize() several times on iOS.
++ Fixed occasional tearing when running very high resolution previews on iOS and Android.
++ Completely rebuilt the documentation.
++ Added Easter Eggs on iOS.
++ Everything below.
+
+NatCam 1.1:
++ FocusMode enum. Now you can specify the active camera's focus mode from one of the four FocusModes: AutoFocus, TapToFocus, HybridFocus, and Off.
++ Orientation support. NatCam now supports all orientations. The preview will always be correctly rotated on all orientations.
++ Native Sources. iOS sources and Android Java sources are now included. Instructions on how to compile both are also included. Android C++ sources will be coming in the next release.
++ Native Plugin Callback for access to the camera preview data in native C-based code (C, C++, Objective-C, and C#). A code example for how to do this is included in the documentation (under NatCam>NatCamNativePluginUpdateEvent).
++ Torch while preview is running.
++ Everything below.
+
+NatCam 1.0:
++ Fluid camera preview on iOS and Android.
++ OpenCV and AR support on iOS and Android.
++ Autofocus.
++ Tap-to-Focus.
++ Zoom (Camera zoom on devices that support it, but a shader-accelerated digital zoom option is available on all devices).
++ Pinch-to-Zoom.
++ Machine Readable Code Detection (e.g QR Codes, ISBN Barcodes, and so on).
++ Capture Photos.
++ Saving captured photos to user devices (and an app album).
++ Flash.
++ Torch.
++ Front Camera Support.
++ Switching Cameras.
++ Getting Supported Camera Resolutions.
++ Android IL2CPP support (and iOS IL2CPP).
++ Low memory footprint.
++ Low CPU utilization.

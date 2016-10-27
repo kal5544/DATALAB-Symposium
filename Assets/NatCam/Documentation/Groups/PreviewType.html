@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html lang='en-US'>
+    <head>
+        <!--Document title is project name-->
+        <title>NatCam Scripting Reference on Calligraphy</title>
+        <!--Extra information-->
+        <meta name='description' content='NatCam API documentation on Calligraphy'> <!--Populate from Calligraphy-->
+        <meta name='keywords' content='NatCam, Unitygram, WebCamTexture, WebCam, Minigram, Calligraphy, Unity'> <!--Populate from Calligraphy-->
+        <meta name='author' content='Calligraphy by Yusuf Olokoba'>
+        <meta charset='UTF-8'>
+        <!--Style sheet-->
+        <link rel='stylesheet' href='../Styles/groupstyles.css'>
+    </head>
+    
+    <body>
+        <h1 class='blockname'>PreviewType</h1>
+        <p1 class='faintname'>enumeration in NatCamU / Enumeration</p1>
+        <br>
+        <br>
+        <h2>Description</h2>
+        <p>This represents whether the camera preview is readable or not. This means that the preview pixel data
+    is available in system memory. This removes the need for very expensive and slow readbacks from the GPU.<br><br>If you only need to display the preview,
+    then NonReadable would suffice. But if you require access to texture data for any manipulations or calculations (like OpenCV or AR), then use Readable.</p>
+        <br>
+        <br>
+        
+        
+<h2>Static Variables</h2>
+<table id='memberlist'>
+    
+<tr>
+    <td><a href='../Members/PreviewType_NonReadable.html'>NonReadable</a></td>
+    <td class='expand'>Preview will be kept stored VRAM and will not be accessible to the CPU.</td>
+</tr>
+        
+<tr>
+    <td><a href='../Members/PreviewType_Readable.html'>Readable</a></td>
+    <td class='expand'>Preview will be made available in RAM and will be accessible to the CPU.</td>
+</tr>
+        
+</table>
+<br>
+        <br>
+        
+        <!--Copyright tag-->
+        <br>
+        <hr>
+        <p1 class='faintname'><small>Copyright (c) Yusuf Olokoba 2016</small></p1>
+        
+    </body>
+</html>
+        

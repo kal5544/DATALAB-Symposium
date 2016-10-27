@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2015
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DATALAB-Symposium-Demo - Final.CSharp.Plugins", "DATALAB-Symposium-Demo - Final.CSharp.Plugins.csproj", "{DA5DF3EA-0680-774C-06CA-0AC8363542C3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DATALAB-Symposium-Demo - Final.CSharp", "DATALAB-Symposium-Demo - Final.CSharp.csproj", "{1D8E6F3C-5BEC-1951-52C4-14A81B28E274}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DATALAB-Symposium-Demo - Final.CSharp.Editor.Plugins", "DATALAB-Symposium-Demo - Final.CSharp.Editor.Plugins.csproj", "{FE85D5B2-8D9B-518E-C2F7-EDC7514A9532}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DATALAB-Symposium-Demo - Final.CSharp.Editor", "DATALAB-Symposium-Demo - Final.CSharp.Editor.csproj", "{A784B97C-130E-ACAE-39E5-AB26EC1EE87A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DA5DF3EA-0680-774C-06CA-0AC8363542C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA5DF3EA-0680-774C-06CA-0AC8363542C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA5DF3EA-0680-774C-06CA-0AC8363542C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA5DF3EA-0680-774C-06CA-0AC8363542C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D8E6F3C-5BEC-1951-52C4-14A81B28E274}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D8E6F3C-5BEC-1951-52C4-14A81B28E274}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D8E6F3C-5BEC-1951-52C4-14A81B28E274}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D8E6F3C-5BEC-1951-52C4-14A81B28E274}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE85D5B2-8D9B-518E-C2F7-EDC7514A9532}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE85D5B2-8D9B-518E-C2F7-EDC7514A9532}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE85D5B2-8D9B-518E-C2F7-EDC7514A9532}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE85D5B2-8D9B-518E-C2F7-EDC7514A9532}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A784B97C-130E-ACAE-39E5-AB26EC1EE87A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A784B97C-130E-ACAE-39E5-AB26EC1EE87A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A784B97C-130E-ACAE-39E5-AB26EC1EE87A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A784B97C-130E-ACAE-39E5-AB26EC1EE87A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

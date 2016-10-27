@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+<html lang='en-US'>
+    <head>
+        <!--Document title is project name-->
+        <title>NatCam Scripting Reference on Calligraphy</title>
+        <!--Extra information-->
+        <meta name='description' content='NatCam API documentation on Calligraphy'> <!--Populate from Calligraphy-->
+        <meta name='keywords' content='NatCam, Unitygram, WebCamTexture, WebCam, Minigram, Calligraphy, Unity'> <!--Populate from Calligraphy-->
+        <meta name='author' content='Calligraphy by Yusuf Olokoba'>
+        <meta charset='UTF-8'>
+        <!--Style sheet-->
+        <link rel='stylesheet' href='../Styles/memberstyles.css'>
+    </head>
+	
+	<body>
+        <h1 class='blockname'><a href='../Groups/PreviewType.html'>PreviewType</a>.Readable</h1>
+        <p1 class='faintname'><b></b></p1>
+        <br>
+        <br>
+        <h2>Description</h2>
+        <p1>Preview will be made available in RAM and will be accessible to the CPU.<br><br>Since 
+    NatCam v1.2, the preview's pixel buffer is stored natively, and not in the managed layer (Unity). As a result, calls like Get/SetPixel(s) 
+    will fail on the preview texture. To have access to the pixel data on the CPU, you are advised to use native code (C, C++, or Objective C) 
+    and the <a href='NatCamNativeInterface_OnNativePreviewUpdate.html'>OnNativePreviewUpdate</a> callback. 
+    <br><br>If need access to the pixel data in Unity, call NatCam.PreviewFrame (which does exactly what NatCam did pre- version 1.2). 
+    Make sure to comment '#define ALLOCATE_NEW_FRAME_TEXTURES' at the top of NatCamNativeInterface.cs to make sure a new Texture2D doesn't get 
+    allocated each time you call NatCam.<a href='NatCam_PreviewFrame.html'>PreviewFrame</a>.</p1>
+        <br>
+        <br>
+        
+        <!--Code example-->
+        <!--Must not be indented-->
+        <!--There must be no space between the text and the pre tags-->
+
+        
+        <!--See Also-->
+        
+        
+        <!--Copyright tag-->
+        <br>
+        <hr>
+        <p1 class='copyright'><small>Copyright (c) Yusuf Olokoba 2016</small></p1>
+        
+	</body>
+</html>        
+        

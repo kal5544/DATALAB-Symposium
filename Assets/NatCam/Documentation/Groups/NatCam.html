@@ -1,0 +1,175 @@
+
+<!DOCTYPE html>
+<html lang='en-US'>
+    <head>
+        <!--Document title is project name-->
+        <title>NatCam Scripting Reference on Calligraphy</title>
+        <!--Extra information-->
+        <meta name='description' content='NatCam API documentation on Calligraphy'> <!--Populate from Calligraphy-->
+        <meta name='keywords' content='NatCam, Unitygram, WebCamTexture, WebCam, Minigram, Calligraphy, Unity'> <!--Populate from Calligraphy-->
+        <meta name='author' content='Calligraphy by Yusuf Olokoba'>
+        <meta charset='UTF-8'>
+        <!--Style sheet-->
+        <link rel='stylesheet' href='../Styles/groupstyles.css'>
+    </head>
+    
+    <body>
+        <h1 class='blockname'>NatCam</h1>
+        <p1 class='faintname'></p1>
+        <br>
+        <br>
+        <h2>Description</h2>
+        <p>This is the central class that receives all commands. All of NatCam's functionality is accessed through this class.
+ NatCam is built for iOS and Android, but has a fallback API wrapper for the WebCamTexture API. Thus, you can use the same code for all the platforms you will 
+ be supporting.</p>
+        <br>
+        <br>
+        
+        
+<h2>Static Functions</h2>
+<table id='memberlist'>
+    
+<tr>
+    <td><a href='../Members/NatCam_CapturePhoto.html'>CapturePhoto</a></td>
+    <td class='expand'>Capture a photo and send it back to the provided callbacks.</td>
+</tr>
+        
+<tr>
+    <td><a href='../Members/NatCam_ExecuteOnPreviewStart.html'>ExecuteOnPreviewStart</a></td>
+    <td class='expand'>Execute the PreviewCallbacks when the preview starts.</td>
+</tr>
+        
+<tr>
+    <td><a href='../Members/NatCam_Initialize.html'>Initialize</a></td>
+    <td class='expand'>Initialize NatCam.</td>
+</tr>
+        
+<tr>
+    <td><a href='../Members/NatCam_Pause.html'>Pause</a></td>
+    <td class='expand'>Pause the camera preview.</td>
+</tr>
+        
+<tr>
+    <td><a href='../Members/NatCam_Play.html'>Play</a></td>
+    <td class='expand'>Start the camera preview.</td>
+</tr>
+        
+<tr>
+    <td><a href='../Members/NatCam_Release.html'>Release</a></td>
+    <td class='expand'>Stop the camera preview and release NatCam.</td>
+</tr>
+        
+<tr>
+    <td><a href='../Members/NatCam_RequestBarcode.html'>RequestBarcode</a></td>
+    <td class='expand'>Request to be notified when NatCam detects a barcode.</td>
+</tr>
+        
+<tr>
+    <td><a href='../Members/NatCam_RequestFace.html'>RequestFace</a></td>
+    <td class='expand'>Request to be notified when NatCam detects a face.</td>
+</tr>
+        
+<tr>
+    <td><a href='../Members/NatCam_SaveToPhotos.html'>SaveToPhotos</a></td>
+    <td class='expand'>Save a photo to the camera roll.</td>
+</tr>
+        
+</table>
+<br>
+        <br>
+<h2>Static Variables</h2>
+<table id='memberlist'>
+    
+<tr>
+    <td><a href='../Members/NatCam_ActiveCamera.html'>ActiveCamera</a></td>
+    <td class='expand'>Get or set the active camera.</td>
+</tr>
+        
+<tr>
+    <td><a href='../Members/NatCam_HasPermissions.html'>HasPermissions</a></td>
+    <td class='expand'>Returns whether NatCam has permissions to use the device cameras.</td>
+</tr>
+        
+<tr>
+    <td><a href='../Members/NatCam_Interface.html'>Interface</a></td>
+    <td class='expand'>Get the backend interface NatCam was initialized with.</td>
+</tr>
+        
+<tr>
+    <td><a href='../Members/NatCam_IsPlaying.html'>IsPlaying</a></td>
+    <td class='expand'>Returns whether a camera preview is playing.</td>
+</tr>
+        
+<tr>
+    <td><a href='../Members/NatCam_IsSupportedDevice.html'>IsSupportedDevice</a></td>
+    <td class='expand'>Returns whether NatCam is running on a supported device.</td>
+</tr>
+        
+<tr>
+    <td><a href='../Members/NatCam_PhotoSaveMode.html'>PhotoSaveMode</a></td>
+    <td class='expand'>Get or set the photo save mode for subsequent captured photos.</td>
+</tr>
+        
+<tr>
+    <td><a href='../Members/NatCam_Preview.html'>Preview</a></td>
+    <td class='expand'>The camera preview as a Texture.</td>
+</tr>
+        
+<tr>
+    <td><a href='../Members/NatCam_PreviewFrame.html'>PreviewFrame</a></td>
+    <td class='expand'>The current camera preview frame.</td>
+</tr>
+        
+<tr>
+    <td><a href='../Members/NatCam_PreviewMatrix.html'>PreviewMatrix</a></td>
+    <td class='expand'>The camera preview as an OpenCV Matrix.</td>
+</tr>
+        
+<tr>
+    <td><a href='../Members/NatCam_Verbose.html'>Verbose</a></td>
+    <td class='expand'>Get or set NatCam's verbose logging mode.</td>
+</tr>
+        
+</table>
+<br>
+        <br>
+<h2>Events</h2>
+<table id='memberlist'>
+    
+<tr>
+    <td><a href='../Members/NatCam_OnBarcodeDetect.html'>OnBarcodeDetect</a></td>
+    <td class='expand'>An event fired when NatCam detects a barcode.</td>
+</tr>
+        
+<tr>
+    <td><a href='../Members/NatCam_OnFaceDetect.html'>OnFaceDetect</a></td>
+    <td class='expand'>An event fired when NatCam detects a face.</td>
+</tr>
+        
+<tr>
+    <td><a href='../Members/NatCam_OnPhotoCapture.html'>OnPhotoCapture</a></td>
+    <td class='expand'>An event fired when NatCam receives a captured photo.</td>
+</tr>
+        
+<tr>
+    <td><a href='../Members/NatCam_OnPreviewStart.html'>OnPreviewStart</a></td>
+    <td class='expand'>An event fired when the camera preview has started.</td>
+</tr>
+        
+<tr>
+    <td><a href='../Members/NatCam_OnPreviewUpdate.html'>OnPreviewUpdate</a></td>
+    <td class='expand'>An event fired when the camera preview updates.</td>
+</tr>
+        
+</table>
+<br>
+        <br>
+        
+        <!--Copyright tag-->
+        <br>
+        <hr>
+        <p1 class='faintname'><small>Copyright (c) Yusuf Olokoba 2016</small></p1>
+        
+    </body>
+</html>
+        

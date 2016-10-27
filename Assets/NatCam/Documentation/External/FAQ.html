@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang='en-US'>
+    <head>
+        <!--Document title is project name-->
+        <title>FAQ</title>
+        <!--Extra information-->
+        <meta name='description' content='Frequently asked questions on NatCam'> <!--Populate from Calligraphy-->
+        <meta name='keywords' content='HTML,CSS,XML,JavaScript, Group, NatCam'> <!--Populate from Calligraphy-->
+        <meta name='author' content='Yusuf Olokoba'>
+        <meta charset='UTF-8'>
+        <!--Style sheet-->
+        <link rel='stylesheet' href='../Styles/groupstyles.css'>
+    </head>
+    
+    <body>
+        <br>
+        <h1 class='blockname'>Frequently Asked Questions</h1>
+        <br>
+        <br>
+        <!--<h2>Info</h2>-->
+        <p1>Here are some frequently asked questions about NatCam:</p1>
+        <br>
+        <br>
+        <p><b>&#0149; How can I get NatCam?</b></p>
+        <p>Head on over to the <a href='https://www.assetstore.unity3d.com/en/#!/content/52154' target='_blank'>Asset Store</a></p>
+        <br>
+        <p><b>&#0149; How does NatCam work?</b></p>
+        <p>NatCam gets the camera preview from the device camera and sends it to Unity. It also performs a lot of operations on the device cameras like focusing, zooming, and so on.</a></p>
+        <br>
+        <p><b>&#0149; What platforms does NatCam work on?</b></p>
+        <p>All platforms! Although NatCam was built primarily for iOS and Android, NatCam has a fallback API built in for other platforms. This means that you don't need to litter your project with platform-dependent code. If a feature is not supported by the fallback API, it will silently return.</a></p>
+        <br>
+        <p><b>&#0149; This looks like it could benefit my <a href='https://www.assetstore.unity3d.com/en/#!/content/21088' target='_blank'>OpenCV</a> app?</b></p>
+        <p>You are 100% correct. NatCam has built-in support for the OpenCVForUnity package, which streamlines the development of OpenCV apps. With NatCam's speed and efficiency,
+           OpenCV apps see huge performance gains. </a></p>
+        <br>
+        <p><b>&#0149; Is there a place where I can ask further questions?</b></p>
+        <p>Yes. Head on over to the <a href='http://forum.unity3d.com/threads/natcam-device-camera-api.374690/#post-2464791' target='_blank'>Unity forum</a> or email me directly at <a href='mailto:olokobayusuf@gmail.com'>olokobayusuf@gmail.com</a>.</p>
+        <br>
+        <p><b>&#0149; I get build errors when building for Android because of duplicate google-play-services.jar</b></p>
+        <p>You probably use a plugin that already has google-play-services.jar. You can go ahead and delete NatCam's jar since there is already one in the project.</a></p>
+        <br>
+        <p><b>&#0149; I get linker errors when building for iOS.</b></p>
+        <p>Add Accelerate framework and AssetLibrary framework to your XCode project. This process was automated in NatCam v1.2f1.</a></p>
+        <br>
+        <p><b>&#0149; My gosh it's fast!</b></p>
+        <p>Exactly. Why don't you head on over to the <a href='https://www.assetstore.unity3d.com/en/#!/content/52154' target='_blank'>Asset Store</a> and leave a great review!</a></p>
+        <br>
+        <p><b>&#0149; I was just wondering, how did you make this amazing documentation?.</b></p>
+        <p>We created a documentation API called <a href='http://forum.unity3d.com/threads/calligraphy-effortless-documentation.390761/' target='_blank'>Calligraphy</a>. We built it because of NatCam, but we will be using it for our subsequent API projects.</a></p>
+        
+        <!--Copyright tag-->
+        <br>
+        <hr>
+        <p1 class='faintname'><small>Copyright (c) Yusuf Olokoba 2016</small></p1>
+        
+    </body>
+</html>
